@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>File_encrypter.My.MyApplication</StartupObject>
     <RootNamespace>File_encrypter</RootNamespace>
-    <AssemblyName>File encrypter</AssemblyName>
+    <AssemblyName>FileEncrypter</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>File encrypter.xml</DocumentationFile>
+    <DocumentationFile>FileEncrypter.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>File encrypter.xml</DocumentationFile>
+    <DocumentationFile>FileEncrypter.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

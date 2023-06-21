@@ -233,38 +233,88 @@ Public Class Form1
     Private encryptor As ICryptoTransform
     Private decryptor As ICryptoTransform
     Dim isReady As Boolean = False
-    Dim encryptionData As Object
+    Dim encryptionData() As Byte
+    Dim path As String = ""
+    Dim runningFromCMD As Boolean = False
+    Private Sub getEncryptionData()
+        If Not runningFromCMD Then
+            path = ""
+            With OpenFileDialog1
+                .CheckFileExists = True
+                .Multiselect = False
+                .ShowDialog()
+                path = .FileName
+            End With
+        End If
+        encryptionData = File.ReadAllBytes(path)
+    End Sub
+    Private Sub saveEncryptionData(encrypting As Boolean)
+        If encrypting Then
+            File.WriteAllBytes(path & ".enc", encryptionData)
+        Else
+            File.WriteAllBytes(Strings.Left(path, path.Length - 4), encryptionData)
+        End If
 
+    End Sub
     Private Sub btnEncrypt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EncryptBtn.Click
+        getEncryptionData()
         If isReady Then
-            Dim sPlainText As String = encryptionData
-            If Not String.IsNullOrEmpty(sPlainText) Then
+            If encryptionData.Length <> 0 Then
                 Dim memoryStream As MemoryStream = New MemoryStream()
                 Dim cryptoStream As CryptoStream = New CryptoStream(memoryStream, Me.encryptor, CryptoStreamMode.Write)
-                cryptoStream.Write(Me.enc.GetBytes(sPlainText), 0, sPlainText.Length)
+                cryptoStream.Write(encryptionData, 0, encryptionData.Length)
                 cryptoStream.FlushFinalBlock()
-                encryptionData = Convert.ToBase64String(memoryStream.ToArray())
+                encryptionData = memoryStream.ToArray()
                 memoryStream.Close()
                 cryptoStream.Close()
             End If
         End If
+        saveEncryptionData(True)
     End Sub
 
     Private Sub btnDecrypt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DecryptBtn.Click
+        getEncryptionData()
+
         If isReady Then
-            Dim cypherTextBytes As Byte() = Convert.FromBase64String(encryptionData)
+            Dim cypherTextBytes As Byte() = encryptionData
+            Dim cypherTextLen As Integer = cypherTextBytes.Length
+            If Not cypherTextLen Mod 16 = 0 Then
+                cypherTextLen = cypherTextLen + (16 - cypherTextLen Mod 16)
+                ReDim Preserve cypherTextBytes(cypherTextLen)
+            End If
             Dim memoryStream As MemoryStream = New MemoryStream(cypherTextBytes)
             Dim cryptoStream As CryptoStream = New CryptoStream(memoryStream, Me.decryptor, CryptoStreamMode.Read)
-            Dim plainTextBytes(cypherTextBytes.Length) As Byte
+            Dim plainTextBytes(cypherTextBytes.Length - 1) As Byte
             Dim decryptedByteCount As Integer = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length)
             memoryStream.Close()
             cryptoStream.Close()
-            encryptionData = Me.enc.GetString(plainTextBytes, 0, decryptedByteCount)
+            encryptionData = plainTextBytes
         End If
+        saveEncryptionData(False)
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'generateprimenumbersbetween()
+        'Dim args() As String = Environment.GetCommandLineArgs
+        'If args.Length = 1 Then
+        '    Exit Sub
+        'ElseIf args(1) = "help" Then
+        '    MsgBox("FileEncrypter [enc/dec] [Path] [Key] [IV]")
+        'ElseIf args.Length = 5 Then
+        '    runningFromCMD = True
+        '    path = args(2)
+        '    Key.Text = args(3)
+        '    IV.Text = args(4)
+        '    If args(1) = "enc" Then
+        '        btnEncrypt_Click(Me, e)
+        '    ElseIf args(1) = "dec" Then
+        '        btnDecrypt_Click(Me, e)
+        '    Else
+        '        MsgBox("Error: invalid arguments")
+        '    End If
+        'Else
+        '    MsgBox("Error: invalid arguments")
+        'End If
+        'Application.Exit()
     End Sub
 
     Private Sub UpdateEncoder(sender As Object, e As EventArgs) Handles Key.TextChanged, IV.TextChanged
@@ -299,6 +349,7 @@ Public Class Form1
                 symmetricKey.Mode = CipherMode.CBC
                 symmetricKey.KeySize = 256
                 symmetricKey.GenerateIV()
+                symmetricKey.Padding = PaddingMode.Zeros
                 enc = New System.Text.UTF8Encoding
                 encryptor = symmetricKey.CreateEncryptor(KEY_256, IV_128)
                 decryptor = symmetricKey.CreateDecryptor(KEY_256, IV_128)

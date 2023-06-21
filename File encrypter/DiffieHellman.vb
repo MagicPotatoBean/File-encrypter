@@ -79,4 +79,8 @@ Public Class DiffieHellman
     Private Sub saveToIVBtn_Click(sender As Object, e As EventArgs) Handles saveToIVBtn.Click
         Form1.IV.Text = GAB.Text
     End Sub
+
+    Private Sub DiffieHellman_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

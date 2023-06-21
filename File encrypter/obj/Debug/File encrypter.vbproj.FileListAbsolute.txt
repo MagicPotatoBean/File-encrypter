@@ -1,0 +1,14 @@
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\File encrypter.vbproj.AssemblyReference.cache
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\File encrypter.vbproj.SuggestedBindingRedirects.cache
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\File_encrypter.DiffieHellman.resources
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\File_encrypter.Form1.resources
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\File_encrypter.Resources.resources
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\File encrypter.vbproj.GenerateResource.cache
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\File encrypter.vbproj.CoreCompileInputs.cache
+C:\Users\terra\source\repos\File encrypter\File encrypter\bin\Debug\FileEncrypter.exe.config
+C:\Users\terra\source\repos\File encrypter\File encrypter\bin\Debug\FileEncrypter.exe
+C:\Users\terra\source\repos\File encrypter\File encrypter\bin\Debug\FileEncrypter.pdb
+C:\Users\terra\source\repos\File encrypter\File encrypter\bin\Debug\FileEncrypter.xml
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\FileEncrypter.exe
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\FileEncrypter.xml
+C:\Users\terra\source\repos\File encrypter\File encrypter\obj\Debug\FileEncrypter.pdb

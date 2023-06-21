@@ -22,18 +22,18 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.EncryptBtn = New System.Windows.Forms.Button()
         Me.DecryptBtn = New System.Windows.Forms.Button()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.Key = New System.Windows.Forms.TextBox()
         Me.IV = New System.Windows.Forms.TextBox()
         Me.RandomiseKeyBtn = New System.Windows.Forms.Button()
         Me.RandomiseIVBtn = New System.Windows.Forms.Button()
         Me.EstablishKeysBtn = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -42,7 +42,7 @@ Partial Class Form1
         '
         'EncryptBtn
         '
-        Me.EncryptBtn.Location = New System.Drawing.Point(12, 12)
+        Me.EncryptBtn.Location = New System.Drawing.Point(363, 64)
         Me.EncryptBtn.Name = "EncryptBtn"
         Me.EncryptBtn.Size = New System.Drawing.Size(75, 23)
         Me.EncryptBtn.TabIndex = 0
@@ -51,63 +51,30 @@ Partial Class Form1
         '
         'DecryptBtn
         '
-        Me.DecryptBtn.Location = New System.Drawing.Point(93, 12)
+        Me.DecryptBtn.Location = New System.Drawing.Point(444, 64)
         Me.DecryptBtn.Name = "DecryptBtn"
         Me.DecryptBtn.Size = New System.Drawing.Size(75, 23)
         Me.DecryptBtn.TabIndex = 1
         Me.DecryptBtn.Text = "Decrypt"
         Me.DecryptBtn.UseVisualStyleBackColor = True
         '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(12, 41)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton1.TabIndex = 2
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(12, 64)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton2.TabIndex = 3
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "RadioButton2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(12, 87)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton3.TabIndex = 4
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "RadioButton3"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
         'Key
         '
-        Me.Key.Location = New System.Drawing.Point(12, 110)
+        Me.Key.Location = New System.Drawing.Point(43, 12)
         Me.Key.Name = "Key"
-        Me.Key.Size = New System.Drawing.Size(100, 20)
+        Me.Key.Size = New System.Drawing.Size(476, 20)
         Me.Key.TabIndex = 5
         '
         'IV
         '
-        Me.IV.Location = New System.Drawing.Point(12, 136)
+        Me.IV.Location = New System.Drawing.Point(43, 38)
         Me.IV.Name = "IV"
-        Me.IV.Size = New System.Drawing.Size(100, 20)
+        Me.IV.Size = New System.Drawing.Size(476, 20)
         Me.IV.TabIndex = 6
         '
         'RandomiseKeyBtn
         '
-        Me.RandomiseKeyBtn.Location = New System.Drawing.Point(118, 108)
+        Me.RandomiseKeyBtn.Location = New System.Drawing.Point(129, 64)
         Me.RandomiseKeyBtn.Name = "RandomiseKeyBtn"
         Me.RandomiseKeyBtn.Size = New System.Drawing.Size(111, 23)
         Me.RandomiseKeyBtn.TabIndex = 7
@@ -116,7 +83,7 @@ Partial Class Form1
         '
         'RandomiseIVBtn
         '
-        Me.RandomiseIVBtn.Location = New System.Drawing.Point(118, 134)
+        Me.RandomiseIVBtn.Location = New System.Drawing.Point(246, 64)
         Me.RandomiseIVBtn.Name = "RandomiseIVBtn"
         Me.RandomiseIVBtn.Size = New System.Drawing.Size(111, 23)
         Me.RandomiseIVBtn.TabIndex = 8
@@ -125,28 +92,48 @@ Partial Class Form1
         '
         'EstablishKeysBtn
         '
-        Me.EstablishKeysBtn.Location = New System.Drawing.Point(118, 82)
+        Me.EstablishKeysBtn.Location = New System.Drawing.Point(12, 64)
         Me.EstablishKeysBtn.Name = "EstablishKeysBtn"
         Me.EstablishKeysBtn.Size = New System.Drawing.Size(111, 23)
         Me.EstablishKeysBtn.TabIndex = 9
         Me.EstablishKeysBtn.Text = "Establish keys"
         Me.EstablishKeysBtn.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 15)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(25, 13)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "Key"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 41)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(17, 13)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "IV"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(532, 100)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.EstablishKeysBtn)
         Me.Controls.Add(Me.RandomiseIVBtn)
         Me.Controls.Add(Me.RandomiseKeyBtn)
         Me.Controls.Add(Me.IV)
         Me.Controls.Add(Me.Key)
-        Me.Controls.Add(Me.RadioButton3)
-        Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.DecryptBtn)
         Me.Controls.Add(Me.EncryptBtn)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(548, 139)
+        Me.MinimumSize = New System.Drawing.Size(548, 139)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -158,12 +145,11 @@ Partial Class Form1
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents EncryptBtn As Button
     Friend WithEvents DecryptBtn As Button
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents Key As TextBox
     Friend WithEvents IV As TextBox
     Friend WithEvents RandomiseKeyBtn As Button
     Friend WithEvents RandomiseIVBtn As Button
     Friend WithEvents EstablishKeysBtn As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

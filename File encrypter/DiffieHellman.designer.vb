@@ -29,6 +29,8 @@ Partial Class DiffieHellman
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.saveToKeyBtn = New System.Windows.Forms.Button()
+        Me.saveToIVBtn = New System.Windows.Forms.Button()
         Me.GAB = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -36,8 +38,6 @@ Partial Class DiffieHellman
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GB = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.saveToIVBtn = New System.Windows.Forms.Button()
-        Me.saveToKeyBtn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -101,6 +101,24 @@ Partial Class DiffieHellman
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Private values (DO NOT SHARE)"
         '
+        'saveToKeyBtn
+        '
+        Me.saveToKeyBtn.Location = New System.Drawing.Point(614, 14)
+        Me.saveToKeyBtn.Name = "saveToKeyBtn"
+        Me.saveToKeyBtn.Size = New System.Drawing.Size(75, 23)
+        Me.saveToKeyBtn.TabIndex = 14
+        Me.saveToKeyBtn.Text = "Save to Key"
+        Me.saveToKeyBtn.UseVisualStyleBackColor = True
+        '
+        'saveToIVBtn
+        '
+        Me.saveToIVBtn.Location = New System.Drawing.Point(695, 14)
+        Me.saveToIVBtn.Name = "saveToIVBtn"
+        Me.saveToIVBtn.Size = New System.Drawing.Size(75, 23)
+        Me.saveToIVBtn.TabIndex = 13
+        Me.saveToIVBtn.Text = "Save to IV"
+        Me.saveToIVBtn.UseVisualStyleBackColor = True
+        '
         'GAB
         '
         Me.GAB.Location = New System.Drawing.Point(124, 16)
@@ -161,24 +179,6 @@ Partial Class DiffieHellman
         Me.Label4.Size = New System.Drawing.Size(112, 13)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "Friend's public number"
-        '
-        'saveToIVBtn
-        '
-        Me.saveToIVBtn.Location = New System.Drawing.Point(695, 14)
-        Me.saveToIVBtn.Name = "saveToIVBtn"
-        Me.saveToIVBtn.Size = New System.Drawing.Size(75, 23)
-        Me.saveToIVBtn.TabIndex = 13
-        Me.saveToIVBtn.Text = "Save to IV"
-        Me.saveToIVBtn.UseVisualStyleBackColor = True
-        '
-        'saveToKeyBtn
-        '
-        Me.saveToKeyBtn.Location = New System.Drawing.Point(614, 14)
-        Me.saveToKeyBtn.Name = "saveToKeyBtn"
-        Me.saveToKeyBtn.Size = New System.Drawing.Size(75, 23)
-        Me.saveToKeyBtn.TabIndex = 14
-        Me.saveToKeyBtn.Text = "Save to Key"
-        Me.saveToKeyBtn.UseVisualStyleBackColor = True
         '
         'DiffieHellman
         '
